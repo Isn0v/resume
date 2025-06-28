@@ -1,0 +1,38 @@
+% !TeX root = ../resume.tex
+
+% --- ВСПОМОГАТЕЛЬНЫЕ КОМАНДЫ ---
+
+% Команда для заголовков секций (WORK EXPERIENCE, SKILLS и т.д.)
+\newcommand{\sectiontitle}[1]{%
+    \vspace{8pt}
+    \par
+    \noindent\MakeUppercase{#1}
+    \hrule width 1\textwidth height 0.4pt
+    \vspace{8pt}
+}
+
+% Команда для иконки внешней ссылки
+\newcommand{\extlink}{\, \textcolor{graytext}{\faIcon{external-link-alt}}}
+
+% Команда для пунктов в списке достижений
+\setlist[itemize,1]{label=\,--, leftmargin=*, topsep=0pt, itemsep=4pt}
+
+% Команда для описания языков
+\newcommand{\languageskill}[2]{%
+    \par\noindent\hangindent=1em\hangafter=0
+    \makebox[8em][l]{#1} % Название языка
+    \foreach \i in {1,...,5}{
+        \ifnum\i > #2
+            \tikz\draw[graytext, fill=white] (0,0) circle (2.5pt);
+        \else
+            \tikz\fill[maintext] (0,0) circle (2.5pt);
+        \fi
+        \hspace{2pt}
+    }
+    \vspace{4pt}
+}
+
+% Команда для "таблеток" с интересами
+\newcommand{\interesttag}[1]{%
+    \tikz[baseline=(X.base)] \node[draw=graytext, rounded corners=3pt, inner sep=4pt, text=graytext] (X) {#1};
+}
