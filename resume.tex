@@ -2,12 +2,15 @@
 
 \documentclass[10pt, a4paper]{article}
 
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+
 \usepackage{trimclip}
 \usepackage{fontspec} % Для работы с системными шрифтами (нужен XeLaTeX или LuaLaTeX)
 \usepackage{geometry} % Для настройки полей страницы
 \usepackage{graphicx} % Для вставки изображений
 \usepackage[svgnames]{xcolor} % Для работы с цветами
-\usepackage{hyperref}   % для кликабельных ссылок
+\usepackage[hidelinks]{hyperref}   % для кликабельных ссылок
 \usepackage{enumitem}   % для настройки списков
 \usepackage{fontawesome5} % Для иконок (email, телефон и т.д.)
 \usepackage{tikz}       % для рисования графических элементов (линия времени, кружки)
@@ -67,7 +70,7 @@
                         xshift=0, % сдвигаем фото влево
                         yshift=-30pt, % сдвигаем фото вверх
                     ] at (path picture bounding box.center) {
-                        \includegraphics[width=1.2\linewidth]{self-photo.jpg}; % вставляем фото
+                        \includegraphics[width=1.2\linewidth]{pics/self-photo.jpg}; % вставляем фото
                     };
                 }
             ] at (0.5\linewidth, 0.5\linewidth) [draw=none, fill=none, minimum width=\linewidth, minimum height=\linewidth, rounded corners=15pt] {};
@@ -77,70 +80,74 @@
     \end{minipage}%
     \hspace{0.02\textwidth} % Отступ между фото и текстом
     \begin{minipage}[c]{0.7\textwidth}
-        \vspace{-1cm} % Подгонка по высоте
-        \parbox{\linewidth}{
-            \raggedright
-            {\Huge \textbf{Sergey Novikov}}\\[5pt]
-        }
+        \Huge \textbf{Новиков} \\
+        \Huge \textbf{Сергей} \\
+        \Huge \textbf{Александрович}
     \end{minipage}
 \end{minipage}%
 \begin{minipage}{0.4\textwidth} % Правая часть шапки
     \raggedleft
     \small
-    isnov.contact@gmail.com \faEnvelope \\[4pt]
-    +7 (963) 571-66-95 \faIcon{mobile-alt} \\[4pt]
-    Novosibirsk, RU \faIcon{map-marker-alt} \\[4pt]
+    \href{tel:+79635716695}{+7 (963) 571-66-95} \faIcon{mobile-alt} \\[4pt]
+    \href{mailto:isnov.contact@gmail.com}{isnov.contact@gmail.com} \faEnvelope \\[4pt]
+    \href{https://t.me/Isn0v}{@Isn0v} \faIcon{telegram-plane} \\[4pt]
+    \href{https://m.vk.com/isn0v}{vk.com/isn0v} \faIcon{vk} \\[4pt]
     \href{https://github.com/Isn0v}{github.com/Isn0v} \faIcon{github} \\[4pt]
-    \href{https://leetcode.com/u/Isn0v/}{LeetCode} \faIcon{code} \\[4pt]
+    \href{https://leetcode.com/u/Isn0v/}{leetcode.com/Isn0v} \faIcon{code} \\[4pt]
 \end{minipage}
 
-\vspace{1.5cm}
+\vspace{1cm}
 
 % ===============================================================
 % КРАТКАЯ СВОДКА (SUMMARY)
 % ===============================================================
-\noindent
-A programmer with experience in teamwork. During my studies I developed some simple projects in cooperation with a team, sometimes taking the responsibility of organizing. Have a knowledge of C++, C, Go, Python and Java. I am learning system programming, actively studying DevOps tools and neural networks. I have practical experience with GitLab CI, as well as basic skills in Docker. I am highly adaptable, independent and sociable - I quickly master new technologies and effectively interact with the team without any problems or conflicts.
 
-\vspace{1cm}
+\raggedright
+Программист с опытом работы в комманде. Во время своего обучения разрабатывал проекты вместе с одногрупниками, иногда брав на себя ответственность в организации. Есть опыт разработки на C/C++, Go, Python. Активно изучаю компьютерные сети и DevOps инструменты и применяю эти знания на парктике, в своих проектах. Есть промышленный опыт работы с GitLab CI. Быстро осваиваю новые технологии и умею эффективно взаимодействовать с командой без каких-либо проблем и конфликтов.
+\newline
+\newline
+C Сентября по Январь 2025 занимался исследовательской деятельностью в \textbf{Excelsior at Huawei}, посвященной изучению устройства ОС Linux, а именно устройства процессов, файловой системы, планировщика, архитектуры и механизмов для изоляции и манипуляции ресурсами ОС. Позже перешел в штат.
+
 
 % ===============================================================
 % ДВУХКОЛОНОЧНАЯ СТРУКТУРА
 % ===============================================================
 
 % Создаем две колонки: левая 70% ширины, правая 30%
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.55\textwidth}
 
 \raggedright
 
 % --- ОПЫТ РАБОТЫ ---
-\sectiontitle{\faBriefcase \quad Work Experience}
+\sectiontitle{\faBriefcase \quad Опыт работы}
 \begin{tikzpicture}[remember picture]
     \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
 \end{tikzpicture}
 \hspace{0.5cm}
 \begin{minipage}[t]{0.9\textwidth}
-    \textbf{\Large Assistant Engineer} \\[2pt]
+    \raggedright
+    \textbf{\Large DevOps Инженер} \\[2pt]
     \textcolor{graytext}{\href{https://rnew.tilda.ws/excelsiorathuawei}{Excelsior at Huawei}}\extlink \\
-    \textcolor{graytext}{\textit{03/2025 - 07/2025}}
+    \textcolor{graytext}{\textit{02/2025 - 07/2025}}
     \begin{itemize}
-        \item \textbf{Developed} and implemented new features into existing GitLab CI/CD pipelines to automate build and deployment processes.
-        \item \textbf{Optimized} the pipeline structure to reduce execution time and improve stability.
-        \item \textbf{Improved} readability and maintainability of configurations, implemented best practices for describing jobs and stages.  
-        \item \textbf{Documented} all changes and provided features.
+        \item \textbf{Разрабатывал} и внедрял новые функции в существующие GitLab CI/CD конвейеры.
+        \item \textbf{Оптимизировал} структуру конвейера для уменьшения времени выполнения и улучшения стабильности.
+        \item \textbf{Улучшал} читаемость и поддерживаемость конфигураций.
+        \item \textbf{Документировал} все изменения и предоставленные функции.
     \end{itemize}
 \end{minipage}
 
 \vspace{1cm}
 
-\sectiontitle{\faFolderOpen \quad Projects}
+\sectiontitle{\faFolderOpen \quad Проекты}
 \begin{tikzpicture}[remember picture]
     \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
 \end{tikzpicture}
 \hspace{0.5cm}
 \begin{minipage}[t]{0.9\textwidth}
-    \textbf{\Large \href{https://github.com/B0GDANPN/BrickOS/tree/9-lab}{BrickOS}} \extlink \\[2pt]
-    Simple implementation of an operating system core with interruption handling based on the Linux kernel and VGA text mode \\
+    \raggedright
+    \textbf{\Large \href{https://github.com/Isn0v/gemini-gateway}{Gemini-Gateway}\extlink } \\[2pt]
+    Небольшой клиент-серверный проект, где сервер - шлюз между \textbf{Gemini AI API} и пользователем, а клиент - сам пользователь, который отправляет запросы через этот шлюз. Цель проекта заключается в познании логики работы с таким стеком технологий, как Kubernetes, Helm, Prometheus, Grafana. Другими словами, DevOps инструментами.\\
 \end{minipage}
 
 \vspace{0.5cm}
@@ -150,8 +157,9 @@ A programmer with experience in teamwork. During my studies I developed some sim
 \end{tikzpicture}
 \hspace{0.5cm}
 \begin{minipage}[t]{0.9\textwidth}
-    \textbf{\Large \href{https://github.com/VolkovK04/NSTTF}{NSTTF (Not So Tiny Tensorflow)}} \extlink \\[2pt]
-    Simple implementation of Tensorflow in C++ with support of GPU acceleration \\
+    \raggedright
+    \textbf{\Large \href{https://github.com/B0GDANPN/BrickOS/tree/main}{BrickOS}\extlink}  \\[2pt]
+    Упрощенная реализация ядра операционной системы с обработкой прерываний на C и Assembler\\
 \end{minipage}
 
 \vspace{0.5cm}
@@ -161,64 +169,66 @@ A programmer with experience in teamwork. During my studies I developed some sim
 \end{tikzpicture}
 \hspace{0.5cm}
 \begin{minipage}[t]{0.9\textwidth}
-    \textbf{\Large \href{https://github.com/Isn0v/KeyLogger}{KeyLogger}} \extlink \\[2pt]
-    Program in Windows with ability to log user's keystrokes, especially in Google Chrome Browser with further sending to mail server \\
+    \raggedright
+    \textbf{\Large \href{https://github.com/VolkovK04/NSTTF}{NSTTF (Not So Tiny Tensorflow)}\extlink}  \\[2pt]
+    Упрощенная реализация Tensorflow на C++ с поддержкой ускорения на GPU \\
 \end{minipage}
 
+\vspace{0.5cm}
 
-\vspace{1cm}
 
 % --- ОБРАЗОВАНИЕ ---
-\sectiontitle{\faGraduationCap \quad Education}
-
-\begin{tikzpicture}[remember picture]
-    \node[circle, fill=maintext, inner sep=2.5pt] (c3) at (0,0) {};
-\end{tikzpicture}
-\hspace{0.5cm}
-\begin{minipage}[t]{0.9\textwidth}
-    \textbf{\Large Computer Science,} \\[2pt]
-    \textit{\large System Programming} \\[4pt]
-    \textcolor{graytext}{Novosibirsk State University} \\
-    \textcolor{graytext}{Bachelor, \textit{2022 - 2026}}
-\end{minipage}
-
 
 \end{minipage}%
 \hfill % Разделитель между колонками
-\begin{minipage}[t]{0.35\textwidth}
-\raggedright
+\begin{minipage}[t]{0.4\textwidth}
 
-% --- НАВЫКИ ---
-\sectiontitle{\faCog \quad Skills}
-\begin{minipage}[t]{0.45\textwidth}
-    \small
-    Linux \\[4pt]
-    Algorithms and Data Structures \\[4pt]
-    GitLab CI/CD \\[4pt]
-    Git \& GitHub \\[4pt]
-    C, C++, Go, Python, Java \\[4pt]
-    CMake, Make \\[4pt]
-    Parallel Programming \\[4pt]
-    Network \\[4pt]
-    Docker \\[4pt]
-    SQL \\[4pt]
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.45\textwidth}
-    \small
-    Adaptability \\[4pt]
-    Independence \\[4pt]
-    Communication \\ [4pt]
-    Teamwork \\[4pt]
-    Collaboration \\[4pt]
-    Organization \\[4pt]
+\sectiontitle{\faGraduationCap \quad Образование}
+% \hspace{0.5cm}
+\begin{minipage}[t]{\textwidth}
+    \raggedright
+    \textbf{\Large Математика и \\Компьютерные Науки} \\[2pt]
+    \textit{\large \href{https://sys.pro/}{Системное Программирование} \extlink} \\[4pt]
+    \textcolor{graytext}{Новосибирский Государственный Университет} \\
+    \textcolor{graytext}{\textit{Механико Математический факультет, \\Бакалавр},\\ \textit{2022 - 2026}}
 \end{minipage}
 
+\vspace{0.5cm}
+
+% --- НАВЫКИ ---
+\sectiontitle{\faCog \quad Навыки}
+\begin{minipage}[t]{0.5\textwidth}
+    \raggedright
+    \small
+    Linux \\[4pt]
+    Алгоритмы и Структуры данных \\[4pt]
+    GitLab CI/CD \\[4pt]
+    Git \& GitHub \\[4pt]
+    C, C++, Go, Python \\[4pt]
+    Компьютерные сети \\[4pt]
+    Docker, K8s \\[4pt]
+    Grafana, Prometheus \\[4pt]
+    ELK
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.5\textwidth}
+    \raggedleft
+    \small
+    Адаптируемость \\[4pt]
+    Ответственность \\[4pt]
+    Работа в комманде \\[4pt]
+    Неконфликтность \\[4pt]
+\end{minipage}
+
+\vspace{0.5cm}
+
 % --- ЯЗЫКИ ---
-\sectiontitle{\faGlobe \quad Languages}
-\small
-\languageskill{Russian}{5}
-\languageskill{English}{3}
+\sectiontitle{\faGlobe \quad Языки}
+% \small
+% \languageskill{Русский}{5}
+% \languageskill{Английский}{4}
+Русский \\[4pt]
+Английский
 
 
 \end{minipage}
