@@ -1,0 +1,218 @@
+% !TeX root = resume_ru.tex
+
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[russian]{babel}
+
+\usepackage{trimclip}
+\usepackage{fontspec} % Для работы с системными шрифтами (нужен XeLaTeX или LuaLaTeX)
+\usepackage{geometry} % Для настройки полей страницы
+\usepackage{graphicx} % Для вставки изображений
+\usepackage[svgnames]{xcolor} % Для работы с цветами
+\usepackage[hidelinks]{hyperref}   % для кликабельных ссылок
+\usepackage{enumitem}   % для настройки списков
+\usepackage{fontawesome5} % Для иконок (email, телефон и т.д.)
+\usepackage{tikz}       % для рисования графических элементов (линия времени, кружки)
+\usetikzlibrary{shapes.misc, positioning, arrows.meta}
+\usepackage{changepage}
+
+% --- НАСТРОЙКИ ШАБЛОНА ---
+
+% 1. ГЕОМЕТРИЯ СТРАНИЦЫ
+\geometry{
+    a4paper,
+    left=12mm,
+    right=12mm,
+    top=10mm,
+    bottom=10mm,
+    footskip=.5cm
+}
+
+% 2. ЦВЕТА
+\definecolor{maintext}{HTML}{333333} % Основной цвет текста
+\definecolor{graytext}{HTML}{666666} % Серый цвет для дат и подписей
+\definecolor{boxgray}{HTML}{EBEBEB}  % Цвет для "таблеток" в интересах
+
+% 3. ШРИФТЫ
+\setmainfont{Lato} % Используем шрифт Lato
+\color{maintext}
+\pagestyle{empty} % Убираем нумерацию страниц
+
+% 4. НАСТРОЙКИ ССЫЛОК
+\hypersetup{
+    colorlinks=true,
+    urlcolor=maintext,
+    linkcolor=maintext,
+    pdfborder={0 0 0}, % убираем рамку вокруг ссылок
+}
+
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{nosep, topsep=2pt, itemsep=1.5pt, leftmargin=*}
+\linespread{0.94}
+
+\begin{document}
+\input{header/header.tex}
+
+% ===============================================================
+% ШАПКА (ИМЯ, КОНТАКТЫ)
+% ===============================================================
+
+\begin{minipage}[t]{0.6\textwidth} % Левая часть шапки
+    \hspace{0.02\textwidth} % Отступ между краем и текстом
+    \begin{minipage}[c]{0.7\textwidth}
+        \Huge \textbf{Сергей Новиков}
+    \end{minipage}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth} % Правая часть шапки
+    \raggedleft
+    \small
+    \href{tel:+79635716695}{+7 (963) 571-66-95} \faIcon{mobile-alt} \\[4pt]
+    \href{mailto:isnov.contact@gmail.com}{isnov.contact@gmail.com} \faEnvelope \\[4pt]
+    \href{https://t.me/Isn0v}{@Isn0v} \faIcon{telegram-plane} \\[4pt]
+    \href{https://github.com/Isn0v}{github.com/Isn0v} \faIcon{github} \\[4pt]
+    \href{https://leetcode.com/u/Isn0v/}{leetcode.com/Isn0v} \faIcon{code} \\[4pt]
+\end{minipage}
+
+\vspace{0.8cm}
+
+% ===============================================================
+% ДВУХКОЛОНОЧНАЯ СТРУКТУРА
+% ===============================================================
+
+\begin{minipage}[t]{0.55\textwidth}
+
+\raggedright
+
+% --- ОПЫТ РАБОТЫ ---
+\sectiontitle{\faBriefcase \quad Опыт работы}
+
+\begin{tikzpicture}[remember picture]
+  \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.9\textwidth}
+  \raggedright
+  \textbf{\Large SRE-инженер} \\[2pt]
+  \textcolor{graytext}{\href{https://www.sberbank.ru/ru/person}{СберБанк}}\extlink \\
+  \textcolor{graytext}{\textit{с 11/2025}}
+  \begin{itemize}
+      \item \textbf{Разработал и интегрировал} со стеком наблюдаемости (ELK/Prometheus) AI-агента для анализа логов, ускорив поиск первопричин (RCA) и сократив время триажа инцидентов на ~40\%.
+      \item \textbf{Спроектировал и стандартизировал} Helm-чарты и CI/CD-пайплайны деплоя критически важных enterprise-сервисов (GitLab, Jira, Confluence, Nexus) в K8s/OpenShift (доступность 99.9\% для 3\,000+ пользователей).
+      \item \textbf{Провел рефакторинг} кодовой базы Helm-чартов Nextcloud: сократил объем конфигурации на 60\% (с 25k до 10k строк) с сохранением полной функциональности и устранением дрейфа конфигураций.
+      \item \textbf{Оптимизировал} конфигурацию NGINX Ingress / балансировщиков и разработал патчи для Harbor, устранив узкие места и повысив стабильность выкачки артефактов под нагрузкой.
+  \end{itemize}
+\end{minipage}
+
+\vspace{0.7cm}
+
+\begin{tikzpicture}[remember picture]
+    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.9\textwidth}
+    \raggedright
+    \textbf{\Large DevOps-инженер} \\[2pt]
+    \textcolor{graytext}{\href{https://rnew.tilda.ws/excelsiorathuawei}{Excelsior at Huawei}}\extlink \\
+    \textcolor{graytext}{\textit{03/2025 -- 07/2025}}
+    \begin{itemize}
+        \item \textbf{Модульно переработал} GitLab CI/CD пайплайны системной разработки, сократив среднее время сборки и тестов на ~30\% за счет параллелизации и кэширования артефактов.
+        \item \textbf{Внедрил} шаблоны пайплайнов, ускорив доставку изменений для ключевой команды разработки.
+    \end{itemize}
+\end{minipage}
+
+\vspace{0.7cm}
+
+\begin{tikzpicture}[remember picture]
+    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.9\textwidth}
+    \raggedright
+    \textbf{\Large Стажер-исследователь Linux} \\[2pt]
+    \textcolor{graytext}{\href{https://rnew.tilda.ws/excelsiorathuawei}{Excelsior at Huawei}}\extlink \\
+    \textcolor{graytext}{\textit{09/2024 -- 01/2025}}
+    \begin{itemize}
+        \item \textbf{Исследовал} внутренние механизмы ядра Linux: планировщик задач (CFS), виртуальную файловую систему (VFS), системные вызовы и управление памятью процессов.
+        \item \textbf{Проводил бенчмаркинг} примитивов изоляции ресурсов и контейнеризации ядра (namespaces, cgroups, seccomp) для оценки накладных расходов и производительности.
+    \end{itemize}
+\end{minipage}
+
+\end{minipage}%
+\hfill % Разделитель между колонками
+\begin{minipage}[t]{0.4\textwidth}
+
+\sectiontitle{\faFolderOpen \quad Проекты}
+
+\begin{tikzpicture}[remember picture]
+    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.9\textwidth}
+    \raggedright
+    \textbf{\Large \href{https://github.com/Isn0v/Sentix}{Sentix}\extlink}  \\[2pt]
+    Микросервисный пайплайн на Go (конкурентный сбор) и Python для анализа сентимента крипто- и финансовых новостей в реальном времени (OpenAI API, PostgreSQL, Docker Compose). \\
+\end{minipage}
+
+\vspace{0.4cm}
+
+\begin{tikzpicture}[remember picture]
+    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.9\textwidth}
+    \raggedright
+    \textbf{\Large \href{https://github.com/B0GDANPN/BrickOS/tree/main}{BrickOS}\extlink}  \\[2pt]
+    Собственное ядро x86-совместимой ОС с нуля на C и x86 Assembly: обработка аппаратных прерываний и управление памятью.
+\end{minipage}
+
+
+\sectiontitle{\faGraduationCap \quad Образование}
+\begin{minipage}[t]{\textwidth}
+    \raggedright
+    \textbf{\Large Математика и \\компьютерные науки} \\[2pt]
+    \textit{\large \href{https://education.nsu.ru/syspro/}{Системное программирование} \extlink} \\[4pt]
+    \textcolor{graytext}{Новосибирский госуниверситет (НГУ)} \\
+    \textcolor{graytext}{\textit{Механико-математический факультет, \\бакалавриат}\\ \textit{2022 -- 2026}}
+\end{minipage}
+
+\vspace{0.4cm}
+
+% --- Исследования ---
+
+\sectiontitle{\faBookOpen \quad Научная деятельность}
+\begin{minipage}[t]{\textwidth}
+  \raggedright
+  \large \href{https://www.nsu.ru/upload/iblock/826/371ay2z05ae8pdhbgjr5b14hcokg31t1/%D0%98%D0%A2_%D0%9D%D0%B0%D1%83%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%BD%D0%B6%D0%B8%D0%BD%D0%B8%D1%80%D0%B8%D0%BD%D0%B3.pdf}{\textbf{Моделирование когнитивных агентов нейроэволюцией}}\extlink  \\[4pt]
+  \small \textcolor{graytext}{Публикация на МНСК-2026 (с. 168). Продемонстрировал преимущество NEAT перед DQN в зашумленной среде.} \\
+\end{minipage}
+
+\vspace{0.4cm}
+
+% --- НАВЫКИ ---
+\sectiontitle{\faCog \quad Навыки}
+\begin{minipage}[t]{1\textwidth}
+    \raggedright
+    \small
+    Linux \\[4pt]
+    Алгоритмы и структуры данных \\[4pt]
+    GitLab CI/CD \\[4pt]
+    Git \& GitHub \\[4pt]
+    C, C++, Go, Python \\[4pt]
+    Компьютерные сети \\[4pt]
+    Docker, K8s, OpenShift, Helm, Kustomize, NGINX \\[4pt]
+    PostgreSQL \\[4pt]
+    Grafana, Prometheus, ELK
+\end{minipage}
+
+\vspace{0.4cm}
+
+% --- ЯЗЫКИ ---
+\sectiontitle{\faGlobe \quad Языки}
+Русский --- родной \\[4pt]
+Английский --- B2
+
+
+\end{minipage}
+
+\end{document}
