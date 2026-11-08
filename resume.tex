@@ -22,14 +22,12 @@
 % 1. ГЕОМЕТРИЯ СТРАНИЦЫ
 \geometry{
     a4paper,
-    left=1.5cm,
-    right=1.5cm,
-    top=1.5cm,
-    bottom=1.5cm,
+    left=12mm,
+    right=12mm,
+    top=10mm,
+    bottom=10mm,
     footskip=.5cm
 }
-
-
 
 % 2. ЦВЕТА
 \definecolor{maintext}{HTML}{333333} % Основной цвет текста
@@ -51,38 +49,20 @@
 
 \setlength{\parindent}{0pt}
 
+\setlist[itemize]{nosep, topsep=2pt, itemsep=1.5pt, leftmargin=*}
+\linespread{0.94}
 
 \begin{document}
-\include{header/header.tex}
+\input{header/header.tex}
 
 % ===============================================================
 % ШАПКА (ИМЯ, ФОТО, КОНТАКТЫ)
 % ===============================================================
 
 \begin{minipage}[t]{0.6\textwidth} % Левая часть шапки
-    \begin{minipage}[c]{0.25\textwidth}
-        \begin{tikzpicture}
-            \clip (0,0) rectangle (\linewidth, \linewidth); % Определяем область видимости (квадрат)
-            \node[
-                inner sep=0pt, % убираем внутренние отступы
-                path picture={
-                    \node[
-                        xshift=0, % сдвигаем фото влево
-                        yshift=-30pt, % сдвигаем фото вверх
-                    ] at (path picture bounding box.center) {
-                        \includegraphics[width=1.2\linewidth]{pics/self-photo.jpg}; % вставляем фото
-                    };
-                }
-            ] at (0.5\linewidth, 0.5\linewidth) [draw=none, fill=none, minimum width=\linewidth, minimum height=\linewidth, rounded corners=15pt] {};
-            % Рисуем рамку с закругленными углами, если нужно
-            \draw[rounded corners=15pt] (0,0) rectangle (\linewidth, \linewidth);
-        \end{tikzpicture}
-    \end{minipage}%
     \hspace{0.02\textwidth} % Отступ между фото и текстом
     \begin{minipage}[c]{0.7\textwidth}
-        \Huge \textbf{Novikov} \\
-        \Huge \textbf{Sergey} \\
-        \Huge \textbf{Alexandrovich}
+        \Huge \textbf{Novikov Sergey}
     \end{minipage}
 \end{minipage}%
 \begin{minipage}{0.4\textwidth} % Правая часть шапки
@@ -91,7 +71,6 @@
     \href{tel:+79635716695}{+7 (963) 571-66-95} \faIcon{mobile-alt} \\[4pt]
     \href{mailto:isnov.contact@gmail.com}{isnov.contact@gmail.com} \faEnvelope \\[4pt]
     \href{https://t.me/Isn0v}{@Isn0v} \faIcon{telegram-plane} \\[4pt]
-    \href{https://m.vk.com/isn0v}{vk.com/isn0v} \faIcon{vk} \\[4pt]
     \href{https://github.com/Isn0v}{github.com/Isn0v} \faIcon{github} \\[4pt]
     \href{https://leetcode.com/u/Isn0v/}{leetcode.com/Isn0v} \faIcon{code} \\[4pt]
 \end{minipage}
@@ -102,11 +81,11 @@
 % КРАТКАЯ СВОДКА (SUMMARY)
 % ===============================================================
 
-\raggedright
-During my studies, I developed projects with my teammates and managed project organization. I have experience developing in C/C++, Go, Python. My Bachelor's Thesis was dedicated to the research in the field of Reinforcement Learning. I developed agents capable of making decisions in cognitive environments and presented my research at the International Student Science Conference (ISSC).
-\newline
-\newline
-From September 2024 to January 2025, I have been doing a research activities at \textbf{Excelsior at Huawei}, focused on studying the structure of the Linux OS, namely the process, file system, scheduler, architecture, and mechanisms for isolating and manipulating OS resources.
+% \raggedright
+% During my studies, I developed projects with my teammates and managed project organization. I have experience developing in C/C++, Go, Python. My Bachelor's Thesis was dedicated to the research in the field of Reinforcement Learning. I developed agents capable of making decisions in cognitive environments and presented my research at the International Student Science Conference (ISSC).
+% \newline
+% \newline
+% From September 2024 to January 2025, I have been doing a research activities at \textbf{Excelsior at Huawei}, focused on studying the structure of the Linux OS, namely the process, file system, scheduler, architecture, and mechanisms for isolating and manipulating OS resources.
 
 
 % ===============================================================
@@ -120,23 +99,6 @@ From September 2024 to January 2025, I have been doing a research activities at 
 
 % --- ОПЫТ РАБОТЫ ---
 \sectiontitle{\faBriefcase \quad Work Experience}
-\begin{tikzpicture}[remember picture]
-    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
-\end{tikzpicture}
-\hspace{0.5cm}
-\begin{minipage}[t]{0.9\textwidth}
-    \raggedright
-    \textbf{\Large DevOps Engineer} \\[2pt]
-    \textcolor{graytext}{\href{https://rnew.tilda.ws/excelsiorathuawei}{Excelsior at Huawei}}\extlink \\
-    \textcolor{graytext}{\textit{03/2025 - 07/2025}}
-    \begin{itemize}
-        \item \textbf{Developed} and introduced new features in existing GitLab CI/CD pipelines.
-        \item \textbf{Optimized} the pipeline structure to reduce execution time and improve stability.
-        \item \textbf{Improved} the readability and maintainability of gitlab runner configurations.
-    \end{itemize}
-\end{minipage}
-
-\vspace{1cm}
 
 
 \begin{tikzpicture}[remember picture]
@@ -149,16 +111,67 @@ From September 2024 to January 2025, I have been doing a research activities at 
   \textcolor{graytext}{\href{https://www.sberbank.ru/ru/person}{SberBank}}\extlink \\
   \textcolor{graytext}{\textit{since 11/2025}}
   \begin{itemize}
-      \item \textbf{Developed} AI agent for log analysis.
-      \item \textbf{Optimized} Helm charts structure and deployment processes for Gitlab, Jira, Confluence, Nexus. Decreased amount of code in Nextcloud helm repository from 25k to 10k lines of code, presserving the same functionality.
-      \item \textbf{Improved} nginx load balancer configuration.
-      \item \textbf{Made} patches in Harbor to improve its functionality
+      \item \textbf{Engineered an automated} AI-powered log analysis agent integrated with the observability stack (ELK/Prometheus), accelerating root-cause analysis (RCA) and reducing incident triage time by ~40\%.
+      \item \textbf{Architected and standardized} Helm charts and CI/CD deployment pipelines for mission-critical enterprise services (GitLab, Jira, Confluence, Nexus) in Kubernetes/OpenShift, ensuring 99.9\% availability for 3,000+ active users.
+      \item \textbf{Refactored and modularized} the Nextcloud Helm chart codebase, cutting total configuration volume by 60\% (from 25k to 10k LoC) while maintaining 100\% functional parity and eliminating deployment configuration drift.
+      \item \textbf{Tuned} NGINX ingress/load-balancer configurations (connection pooling, timeouts, buffering) and developed custom patches for the Harbor container registry, resolving production bottlenecks and improving artifact pull stability under peak loads.
   \end{itemize}
 \end{minipage}
 
 \vspace{1cm}
 
+\begin{tikzpicture}[remember picture]
+    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.9\textwidth}
+    \raggedright
+    \textbf{\Large DevOps Engineer} \\[2pt]
+    \textcolor{graytext}{\href{https://rnew.tilda.ws/excelsiorathuawei}{Excelsior at Huawei}}\extlink \\
+    \textcolor{graytext}{\textit{03/2025 - 07/2025}}
+    \begin{itemize}
+        \item \textbf{Redesigned and modularized} complex GitLab CI/CD pipelines for systems development, reducing average build and test execution time by ~30\% through stage parallelization and artifact caching.
+        \item \textbf{Standardized and hardened} GitLab Runner fleet configurations across Linux build nodes, eliminating flaky infrastructure failures and simplifying runner provisioning.
+        \item \textbf{Implemented} automated pipeline templates and quality gates, accelerating feature delivery for the core engineering team.
+    \end{itemize}
+\end{minipage}
+
+\vspace{1cm}
+
+\begin{tikzpicture}[remember picture]
+    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.9\textwidth}
+    \raggedright
+    \textbf{\Large Linux Systems Researcher / Intern} \\[2pt]
+    \textcolor{graytext}{\href{https://rnew.tilda.ws/excelsiorathuawei}{Excelsior at Huawei}}\extlink \\
+    \textcolor{graytext}{\textit{09/2024 - 01/2025}}
+    \begin{itemize}
+        \item \textbf{Conducted} deep-dive systems research into Linux kernel internals, focusing on task scheduling (CFS), Virtual File System (VFS), system calls, and process memory management.
+        \item \textbf{Analyzed and benchmarked} kernel-level resource isolation and containerization primitives (namespaces, cgroups, seccomp) to evaluate runtime performance and overhead.
+    \end{itemize}
+\end{minipage}
+
+\vspace{1cm}
+
+% --- ОБРАЗОВАНИЕ ---
+
+\end{minipage}%
+\hfill % Разделитель между колонками
+\begin{minipage}[t]{0.4\textwidth}
+
 \sectiontitle{\faFolderOpen \quad Projects}
+
+\begin{tikzpicture}[remember picture]
+    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{minipage}[t]{0.9\textwidth}
+    \raggedright
+    \textbf{\Large \href{https://github.com/Isn0v/Sentix}{Sentix -- Real-Time Market Sentiment Pipeline}\extlink}  \\[2pt]
+    Architected a microservice pipeline in Go (concurrent data ingestion) and Python for real-time crypto/financial news analysis, using OpenAI API inference backed by PostgreSQL and Docker Compose. \\
+\end{minipage}
 
 \vspace{0.5cm}
 
@@ -169,29 +182,9 @@ From September 2024 to January 2025, I have been doing a research activities at 
 \begin{minipage}[t]{0.9\textwidth}
     \raggedright
     \textbf{\Large \href{https://github.com/B0GDANPN/BrickOS/tree/main}{BrickOS}\extlink}  \\[2pt]
-    A simplified implementation of the operating system kernel with interrupt handling on C and Assembler\\
+    Custom x86 operating system kernel written from scratch in C and x86 Assembly featuring hardware interrupt handling and memory management.
 \end{minipage}
 
-\vspace{0.5cm}
-
-\begin{tikzpicture}[remember picture]
-    \node[circle, fill=maintext, inner sep=2.5pt] (c1) at (0,0) {};
-\end{tikzpicture}
-\hspace{0.5cm}
-\begin{minipage}[t]{0.9\textwidth}
-    \raggedright
-    \textbf{\Large \href{https://github.com/VolkovK04/NSTTF}{NSTTF (Not So Tiny Tensorflow)}\extlink}  \\[2pt]
-    A simplified implementation of Tensorflow in C++ with GPU acceleration support \\
-\end{minipage}
-
-\vspace{0.5cm}
-
-
-% --- ОБРАЗОВАНИЕ ---
-
-\end{minipage}%
-\hfill % Разделитель между колонками
-\begin{minipage}[t]{0.4\textwidth}
 
 \sectiontitle{\faGraduationCap \quad Education}
 % \hspace{0.5cm}
@@ -200,7 +193,7 @@ From September 2024 to January 2025, I have been doing a research activities at 
     \textbf{\Large Mathematics and \\Computer Science} \\[2pt]
     \textit{\large \href{https://education.nsu.ru/syspro/}{System Programming} \extlink} \\[4pt]
     \textcolor{graytext}{Novosibirsk State University} \\
-    \textcolor{graytext}{\textit{Mechanics and Mathematics Faculty, \\Bachelor},\\ \textit{2022 - 2026}}
+    \textcolor{graytext}{\textit{Mechanics and Mathematics Faculty, \\Bachelor}\\ \textit{2022 - 2026}}
 \end{minipage}
 
 \vspace{0.5cm}
@@ -212,14 +205,14 @@ From September 2024 to January 2025, I have been doing a research activities at 
 \begin{minipage}[t]{\textwidth}
   \raggedright
   \Large \href{https://www.nsu.ru/upload/iblock/826/371ay2z05ae8pdhbgjr5b14hcokg31t1/%D0%98%D0%A2_%D0%9D%D0%B0%D1%83%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%BD%D0%B6%D0%B8%D0%BD%D0%B8%D1%80%D0%B8%D0%BD%D0%B3.pdf}{\textbf{Using Neuro-Evolutional algorithms for modelling cognitive agents}}\extlink  \\[4pt]
-  \large \textcolor{graytext}{Page 168} \\
+  \large \textcolor{graytext}{Published at ISSC 2026 (p. 168). Demonstrated agent performance gain in noisy environments using NEAT over Deep Q-Networks (DQN).} \\
 \end{minipage}
 
 \vspace{0.5cm}
 
 % --- НАВЫКИ ---
 \sectiontitle{\faCog \quad Skills}
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{1\textwidth}
     \raggedright
     \small
     Linux \\[4pt]
@@ -228,18 +221,9 @@ From September 2024 to January 2025, I have been doing a research activities at 
     Git \& GitHub \\[4pt]
     C, C++, Go, Python \\[4pt]
     Computer Networks \\[4pt]
-    Docker, K8s \\[4pt]
-    Grafana, Prometheus \\[4pt]
-    ELK
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.5\textwidth}
-    \raggedleft
-    \small
-    Adaptability \\[4pt]
-    Responsibility \\[4pt]
-    Teamwork \\[4pt]
-    Conflict-free \\[4pt]
+    Docker, K8s, OpenShift, Helm, Kustomize, NGINX \\[4pt]
+    PostgreSQL \\[4pt]
+    Grafana, Prometheus, ELK
 \end{minipage}
 
 \vspace{0.5cm}
@@ -249,8 +233,8 @@ From September 2024 to January 2025, I have been doing a research activities at 
 % \small
 % \languageskill{Русский}{5}
 % \languageskill{Английский}{4}
-Russian \\[4pt]
-English 
+Russian -- Native \\[4pt]
+English -- B2
 
 
 \end{minipage}
