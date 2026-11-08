@@ -1,14 +1,10 @@
-Привет команде 2ГИС!
+Hi Plata Processing Core Team,
 
-Откликаюсь на позицию SRE-инженера в новую команду надёжности. Мой текущий профиль в Сбере и бэкграунд системного программирования (мехмат НГУ + R&D в Huawei) напрямую закрывают задачи, которые вы ставите перед новым направлением:
+I am applying for the SRE role in the Processing Core team. Currently working as an SRE Engineer in the banking sector (SberBank) with a systems programming background from Novosibirsk State University and Linux kernel R&D experience at Huawei, my daily stack aligns directly with your platform requirements.
 
-В Сбере я разработал и интегрировал со стеком ELK/Prometheus автоматизированного AI-агента для анализа логов, что ускорило поиск первопричин сбоев (RCA) и сократило время триажа инцидентов на 40%.
+In my current role at SberBank, I architect and maintain Helm charts and GitLab CI/CD deployment pipelines in Kubernetes/OpenShift, ensuring 99.9% availability for mission-critical enterprise and vendor services across 3,000+ active users. I also refactored our production Nextcloud Helm codebase, reducing configuration volume by 60% (from 25k to 10k LoC) while maintaining full functional parity.
 
-Привел к единому стандарту Helm-чарты и пайплайны деплоя критичных сервисов в Kubernetes/OpenShift (доступность 99.9% для 3000+ активных пользователей), а также провел глубокий рефакторинг кодовой базы инфраструктуры Nextcloud, сократив объем кода с 25k до 10k строк без потери функциональности.
+For observability and incident management, I work extensively with Prometheus, Grafana, and the ELK stack — where I engineered an automated AI-powered log analysis agent that accelerated root-cause analysis (RCA) and reduced incident triage time by 40%. Additionally, I regularly handle performance tuning across NGINX load balancers, container registries, and Linux kernel primitives (CFS, VFS, cgroups/namespaces) using Go, Python, and Bash.
 
-Уверенно пишу автоматизацию и микросервисы на Go и Python, глубоко понимаю внутреннее устройство ядра Linux (планировщик CFS, VFS, изоляция ресурсов cgroups/namespaces) и умею находить узкие места производительности под пиковой нагрузкой.
-
-Живу в Новосибирске, отлично знаком с инженерной культурой 2ГИС и буду рад включиться в построение платформы надёжности, внедрение OpenTelemetry и развитие практик SLO/Error Budget с первых шагов команды.
-
-С уважением,
-Сергей Новиков
+Best regards,
+Sergey Novikov
